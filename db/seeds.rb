@@ -7,6 +7,8 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 require "open-uri"
 
+#christina is the best!
+
 recipes = [
   "http://www.simplyrecipes.com/recipes/blueberry_maple_breakfast_bake/",
   "http://www.simplyrecipes.com/recipes/portobello_mushroom_burger/",

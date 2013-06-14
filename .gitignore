@@ -7,6 +7,9 @@
 # Ignore bundler config
 /.bundle
 
+# git rm --cached config/database.yml in terminal will move it so git ignores. then add this
+/config/database.yml
+
 # Ignore the default SQLite database.
 /db/*.sqlite3
 
