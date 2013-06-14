@@ -27,6 +27,8 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 gem "twilio-ruby"
 gem "nokogiri"
 
+gem "pry"
+
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
 

@@ -1,5 +1,16 @@
 class RecipesController < ApplicationController
+  require "open-uri"
+
+
   def index
+    @blueberry_maple_title = "foo"
+    @mushroom_title = "bar"
+    @thai_title = "baz"
+    @twilio_client.account.sms.messages.create(
+        :from => '3018304179',
+        :to => '3018012521',
+        :body => "#{@blueberry_maple_title}, #{@mushroom_title}, and #{@thai_title} recipes added with SimplyRecipes content."
+      )
     @recipes = Recipe.all
   end
 
