@@ -1,9 +1,10 @@
 class CommentsController < ApplicationController
   # GET /comments
   # GET /comments.json
-  def index
-    @comments = Comment.all
+  before_filter :get_recipe
 
+  def index
+    @comments = @recipe.comments
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @comments }
@@ -24,7 +25,7 @@ class CommentsController < ApplicationController
   # GET /comments/new
   # GET /comments/new.json
   def new
-    @comment = Comment.new
+    @comment = @recipe.comments.build 
 
     respond_to do |format|
       format.html # new.html.erb
@@ -40,7 +41,7 @@ class CommentsController < ApplicationController
   # POST /comments
   # POST /comments.json
   def create
-    @comment = Comment.new(params[:comment])
+    @comment = @recipe.comments.build(params[:comment])
 
     respond_to do |format|
       if @comment.save
@@ -79,5 +80,9 @@ class CommentsController < ApplicationController
       format.html { redirect_to comments_url }
       format.json { head :no_content }
     end
+  end
+
+  def get_recipe
+    @recipe = Recipe.find(params[:recipe_id])
   end
 end

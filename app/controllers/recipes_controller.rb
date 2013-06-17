@@ -3,9 +3,6 @@ class RecipesController < ApplicationController
 
 
   def index
-    @blueberry_maple_title = "foo"
-    @mushroom_title = "bar"
-    @thai_title = "baz"
     @twilio_client.account.sms.messages.create(
         :from => '3018304179',
         :to => '3018012521',
@@ -26,7 +23,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new(params[:recipe])
 
     if @recipe.save
-      redirect_to "/recipes/index"
+      redirect_to "/recipes"
     else
       render :new
     end
@@ -40,7 +37,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
 
     if @recipe.update_attributes(params[:recipe])
-      redirect_to "/recipes/index"
+      redirect_to "/recipes"
     else
       render :edit
     end
@@ -49,6 +46,6 @@ class RecipesController < ApplicationController
   def destroy
     @recipe = Recipe.find(params[:id])
     @recipe.destroy
-    redirect_to "/recipes/index"
+    redirect_to "/recipes"
   end
 end

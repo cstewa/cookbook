@@ -10,32 +10,15 @@ Cookbook::Application.routes.draw do
   resources :users
 
 
-  resources :ingredients
-
-
-  resources :comments
-
-
   resources :steps
 
 
   resources :categories
 
-
-  get "recipes/index"
-
-  get "recipes/new"
-  post "recipes/create"
-
-  get "recipes/change/:id" => 'recipes#edit', :as => :edit_recipe
-  put "recipes/update/:id" => 'recipes#update', :as => :update_recipe
-
-  delete "recipes/destroy/:id" => 'recipes#destroy', :as => :delete_recipe
-
-  get "recipes/:id" => 'recipes#show', :as => :recipe
-
-  root :to => 'recipes#index'
-
+  resources :recipes do 
+    resources :comments
+    resources :ingredients
+  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

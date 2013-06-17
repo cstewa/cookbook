@@ -5,6 +5,6 @@
   <p>
     <%= link_to recipe.title, recipe_path(recipe.id) %> |
     <%= link_to "Edit", edit_recipe_path(recipe.id) %> |
-    <%= link_to "Delete", delete_recipe_path(recipe.id), :method => :delete %>
+    <%= link_to "Delete", recipe_path(recipe.id), :method => :delete %>
   </p>
 <% end %>
